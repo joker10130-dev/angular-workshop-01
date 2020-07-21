@@ -43,6 +43,8 @@ export class UsersComponent implements OnInit {
     }
     const fullName = `${this.f.firstName.value} ${this.f.lastName.value}`;
     this.users.push({name: fullName, status: false});
+    this.loginForm.reset();
+    this.submitted = false;
   }
 
   onClickChange(index: number): void {

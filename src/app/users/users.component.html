@@ -5,12 +5,28 @@
   <div class="card-body">
     <form [formGroup]="loginForm" (ngSubmit)="onSave()">
       <div class="form-group">
-        <label>First name: <input type="text" formControlName="firstName" /></label>
+        <label for="firstName">First name: </label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{
+          'is-invalid': submitted && loginForm.controls.firstName.errors
+        }" />
+        <div *ngIf="loginForm.controls.firstName.errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls.firstName.errors.required">
+            First name is required
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label>Last name: <input type="text" formControlName="lastName" /></label>
+        <label for="lastName">Last name: </label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{
+          'is-invalid': submitted && loginForm.controls.lastName.errors
+        }" />
+        <div *ngIf="loginForm.controls.lastName.errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls.lastName.errors.required">Last name is required</div>
+        </div>
       </div>
-      <button class="btn btn-primary">Save</button>
+      <div class="form-group">
+        <button class="btn btn-primary">Save</button>
+      </div>
     </form>
   </div>
   <div class="card-footer">
