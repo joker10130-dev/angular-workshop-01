@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Reactive Form</h1>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSave()">
+      <div class="form-group">
+        <label>First name: <input type="text" formControlName="firstName" /></label>
+      </div>
+      <div class="form-group">
+        <label>Last name: <input type="text" formControlName="lastName" /></label>
+      </div>
+      <button class="btn btn-primary">Save</button>
+    </form>
+  </div>
+  <div class="card-footer">
+    <p>Count = {{strikedCount}}/{{users.length}}</p>
+  </div>
+</div>
+
+<ul *ngIf="show">
+  <li *ngFor="let user of users; let i = index" [class.striked]="user.status" (click)="onClickChange(i)">{{user.name}}</li>
+</ul>

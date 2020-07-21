@@ -1,0 +1,7 @@
+li.striked {
+    text-decoration: line-through;
+}
+li:hover {
+    background-color: blueviolet;
+    cursor:pointer;
+}
